@@ -10,7 +10,8 @@ const exeptionsFilter = (
 ) => {
     const status = error.status || HttpStatuses.INTERNAL_SERVER_ERROR;
     const message = error.message || 'Something went wrong';
-    res.status(status).send({ status, message });
+    console.log('message: ', message);
+    res.status(status).json({ status, message });
 };
 
 export default exeptionsFilter;

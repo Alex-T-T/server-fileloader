@@ -35,18 +35,6 @@ export const getFile = async (fileData: File) => {
     return data.Body as Buffer;
 };
 
-// POST Service ==============================
-// export const uploadFile = async (file: Express.Multer.File) => {
-//     const params = {
-//         Bucket: awsConfig.bucketName,
-//         Key: Date.now() + '-' + file.originalname,
-//         Body: file.buffer,
-//         ContentType: file.mimetype,
-//     };
-
-//     return s3.upload(params).promise();
-// };
-
 export const uploadFile = async (file: Express.Multer.File) => {
     const options = { partSize: 10 * 1024 * 1024, queueSize: 4 };
 
