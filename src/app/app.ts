@@ -13,7 +13,9 @@ const app = express();
 const UI_URL = process.env.NODE_ENV === 'development' ? 'http://localhost:3000/' : process.env.UI_URL 
 
 app.use(logger('dev'));
-app.use(cors( {origin: UI_URL}));
+app.use(cors( {origin: UI_URL,
+    methods: ['GET', 'POST', 'OPTIONS'],
+}));
 
 app.use(express.json({ limit: '10mb' })); 
 app.use(express.urlencoded({ limit: '7gb', extended: true }));
