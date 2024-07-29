@@ -10,10 +10,13 @@ import suggestionsRouter from '../suggestions/suggestions.router';
 
 const app = express();
 
-app.use(logger('dev'));
-app.use(cors());
+const UI_URL = process.env.NODE_ENV === 'development' ? 'http://localhost:3000/' : process.env.UI_URL 
 
-app.use(express.json());
+app.use(logger('dev'));
+app.use(cors( {origin: UI_URL}));
+
+app.use(express.json({ limit: '10mb' })); 
+app.use(express.urlencoded({ limit: '7gb', extended: true }));
 
 AppDataSource.initialize()
     .then(() => {
