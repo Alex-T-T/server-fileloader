@@ -51,6 +51,7 @@ export const getFileByName = async (name: string) => {
 };
 
 export const getNameSuggestions = async (query: string) => {
+    console.log('query: ', query);
 
     const queryOptions: any = {
         select: [ 'name' ],

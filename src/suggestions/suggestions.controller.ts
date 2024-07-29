@@ -8,7 +8,7 @@ export const getSuggestions = async (
     res: Response
 ): Promise<void> => {
 
-    const search = req.query.query as string || ''
+    const search = req.query.search as string || ''
 
     const suggestions = await filesService.getNameSuggestions(search);
 
