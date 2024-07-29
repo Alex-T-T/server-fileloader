@@ -11,12 +11,12 @@ export const databaseConfiguration = (
     const migrationPath =
         process.env.NODE_ENV === 'development'
             ? `${ROOT_PATH}/**/migrations/*{.ts,.js}`
-            : `dist/**/migrations/*{.ts,.js}`;
+            : `build/**/migrations/*{.ts,.js}`;
 
     const entitiesPath =
         process.env.NODE_ENV === 'development'
             ? `${ROOT_PATH}/**/*.entity{.ts,.js}`
-            : `dist/**/*.entity{.ts,.js}`;
+            : `build/**/*.entity{.ts,.js}`;
 
     const config: PostgresConnectionOptions = {
         type: 'postgres',
