@@ -10,7 +10,7 @@ import suggestionsRouter from '../suggestions/suggestions.router';
 
 const app = express();
 
-const UI_URL = process.env.NODE_ENV === 'development' ? 'http://localhost:3000/' : process.env.UI_URL 
+const UI_URL = process.env.NODE_ENV === 'development' ? 'http://localhost:3000' : process.env.UI_URL 
 
 app.use(logger('dev'));
 app.use(cors( {origin: UI_URL,
