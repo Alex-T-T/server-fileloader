@@ -6,6 +6,7 @@ import path from 'path';
 import { AppDataSource } from '../db/data-source';
 import filesRouter from '../files/files.router';
 import exeptionsFilter from './middlewares/exception.filter';
+import suggestionsRouter from '../suggestions/suggestions.router';
 
 const app = express();
 
@@ -26,6 +27,8 @@ const staticFilesPath = path.join(__dirname, '../', 'public');
 app.use('/api/v1/public', express.static(staticFilesPath));
 
 app.use('/api/v1/files', filesRouter);
+app.use('/api/v1/search-suggestions', suggestionsRouter);
+
 
 app.use(exeptionsFilter);
 export default app;

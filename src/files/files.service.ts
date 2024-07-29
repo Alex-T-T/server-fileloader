@@ -50,6 +50,20 @@ export const getFileByName = async (name: string) => {
     return fileData;
 };
 
+export const getNameSuggestions = async (query: string) => {
+
+    const queryOptions: any = {
+        select: [ 'name' ],
+        where: {
+            name: ILike(`%${query}%`),
+        }
+    };
+
+    const suggestions = await filesRepository.find(queryOptions);
+
+    return suggestions
+}
+
 // POST Services =================================
 
 export const createNewFile = async (
